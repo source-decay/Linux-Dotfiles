@@ -1,0 +1,27 @@
+[Configuration]
+FontName=Droid Sans Mono 9
+MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
+MiscInheritGeometry=FALSE
+MiscMenubarDefault=FALSE
+MiscToolbarDefault=FALSE
+MiscConfirmClose=TRUE
+MiscCycleTabs=TRUE
+MiscTabPosition=GTK_POS_TOP
+MiscHighlightUrls=TRUE
+TitleMode=TERMINAL_TITLE_REPLACE
+ColorCursor=#c5c8c6
+ColorForeground=#c5c8c6
+ColorBackground=#1d1f21
+ColorPalette=#1d1f21;#CC342B;#198844;#FBA922;#3971ED;#A36AC7;#3971ED;#c5c8c6;#969896;#CC342B;#198844;#FBA922;#3971ED;#A36AC7;#3971ED;#ffffff
+MiscAlwaysShowTabs=FALSE
+MiscBell=FALSE
+MiscBordersDefault=FALSE
+MiscCursorBlinks=FALSE
+MiscMouseAutohide=TRUE
+MiscTabCloseButtons=TRUE
+MiscTabCloseMiddleClick=TRUE
+MiscScrollAlternateScreen=FALSE
+ScrollingBar=TERMINAL_SCROLLBAR_NONE
+TabActivityTimeout=1
+TitleInitial=Terminal
+
