@@ -15,6 +15,7 @@ set encoding=utf-8
 set shell=/bin/bash
 set number
 set spell spelllang=en_us
+set wrap
 
 " Formatting
 set autoindent
@@ -35,6 +36,11 @@ set showcmd
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
+" Extra Javascript syntax highlighting
+let g:used_javascript_libs = 'angularjs,jasmine,jquery'
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+
 " Set SpellBad to underline misspelled instead of highlight so I don't have to
 " fiddle with highlighting colors.
 hi clear SpellBad
@@ -47,4 +53,5 @@ hi MatchParen cterm=underline ctermbg=none ctermfg=none
 call plug#begin('~/dotfiles/vim/.vim/plugged')
   Plug 'tpope/vim-vinegar'
   Plug 'Yggdroot/indentLine' 
+  Plug 'othree/javascript-libraries-syntax.vim'
 call plug#end()
