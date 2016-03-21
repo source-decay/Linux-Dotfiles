@@ -15,13 +15,13 @@ set encoding=utf-8
 set shell=/bin/bash
 set number
 set spell spelllang=en_us
-set wrap
+set nocompatible
 
 " Formatting
 set autoindent
 set ignorecase
 set smartcase
-set textwidth=80
+match ErrorMsg '\%>120v.\+'
 
 set softtabstop=2
 set shiftwidth=2
@@ -47,11 +47,14 @@ hi clear SpellBad
 hi SpellBad cterm=underline
 
 " Kill bracket match highlighting and replace with underlining
-hi MatchParen cterm=underline ctermbg=none ctermfg=none 
+hi MatchParen cterm=underline ctermbg=none ctermfg=none
+
+" Remove trailing whitespaces on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Plug in calls via Vim-Plug
 call plug#begin('~/dotfiles/vim/.vim/plugged')
   Plug 'tpope/vim-vinegar'
-  Plug 'Yggdroot/indentLine' 
+  Plug 'Yggdroot/indentLine'
   Plug 'othree/javascript-libraries-syntax.vim'
 call plug#end()
