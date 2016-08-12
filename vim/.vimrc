@@ -40,13 +40,6 @@ let g:indent_guides_guide_size=1
 " Settings for JavaScript Library Syntax
 let g:used_javascript_libs = 'angularjs,jasmine,jquery,underscore'
 
-" Settings for lightline
-let g:lightline = { 'colorscheme': 'solarized_dark' }
-
-if !has('gui_running')
-  set t_Co=256
-endif
-
 " Set SpellBad to underline misspelled
 hi clear SpellBad
 hi SpellBad cterm=underline
