@@ -16,6 +16,9 @@ set shell=/bin/bash
 set number
 set nocompatible
 
+" Ricing
+set background=dark
+
 " Formatting
 set autoindent
 set ignorecase
@@ -37,9 +40,6 @@ set showcmd
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
-" Settings for JavaScript Library Syntax
-let g:used_javascript_libs = 'angularjs,jasmine,jquery,underscore'
-
 " Set SpellBad to underline misspelled
 hi clear SpellBad
 hi SpellBad cterm=underline
@@ -53,8 +53,5 @@ autocmd BufWritePre * :%s/\s\+$//e
 call plug#begin('~/dotfiles/vim/.vim/plugged')
   Plug 'tpope/vim-vinegar'
   Plug 'Yggdroot/indentLine'
-  Plug 'pangloss/vim-javascript'
-  Plug 'othree/javascript-libraries-syntax.vim'
   Plug 'itchyny/lightline.vim'
-  Plug 'leafgarland/typescript-vim'
 call plug#end()

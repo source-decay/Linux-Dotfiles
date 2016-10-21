@@ -10,3 +10,6 @@ alias doc='cd ~/Documents'
 alias dld='cd ~/Downloads'
 alias dot='cd ~/dotfiles'
 alias dev='cd ~/Documents/Development'
+
+# Ricing information
+alias rice='~/mybins/sysif.sh'

@@ -117,6 +117,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-function cdls() {
+function cl() {
   builtin cd "$@" && ls
+}
+
+function mm() {
+  mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch10:"$@"
 }
