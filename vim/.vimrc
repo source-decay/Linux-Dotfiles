@@ -1,57 +1,78 @@
-" my VIM configuration file - embrace the darkness
+" Three double quotes denote a main section
+" A double quote followed by two dashes is a subsection
+" or a comment on something in that section
 
-" Mappings
-inoremap jk <ESC>
-let mapleader="\<Space>"
+""" Mappings
+	inoremap jk <ESC>
+	nnoremap <C-J> <C-W><C-J>
+	nnoremap <C-K> <C-W><C-K>
+	nnoremap <C-L> <C-W><C-L>
+	nnoremap <C-H> <C-W><C-H>
+	let mapleader="\<Space>"
+	nnoremap <space>/ :Ag
 
-" Syntax
-filetype plugin indent on
-syntax enable
+""" Basics
+	set title
+	set ruler
+	set encoding=utf-8
+	set shell=/bin/bash
+	set number
+	set colorcolumn=120
+	set splitbelow
+	set splitright
+	filetype plugin indent on
+	syntax enable
 
-" Basics
-set title
-set ruler
-set encoding=utf-8
-set shell=/bin/bash
-set number
-set nocompatible
+""" Text Editor Related
+	set autoindent
+	set ignorecase
+	set smartcase
+	set tabstop=2
+	set shiftwidth=2
+	set noexpandtab
+	set nocompatible
+	hi clear SpellBad
+	hi SpellBad cterm=underline
+	match ErrorMsg '\%>120v.\+'
 
-" Ricing
-set background=dark
+""" Statusbar-related
+	set laststatus=2
+	set modeline
+	set showmode
+	set showcmd
 
-" Formatting
-set autoindent
-set ignorecase
-set smartcase
-set softtabstop=2
-set shiftwidth=2
-set expandtab
+""" Coloring Related
+	set background=dark
+	let g:lightline = { 'colorscheme': 'flatcolor' }
+	highlight ColorColumn ctermbg=3
 
-" Any characters past 120 per line will be highlighted
-match ErrorMsg '\%>120v.\+'
+""" Plugin settings
+	"-- IndentLine formatting
+	let g:indent_guides_start_level=2
+	let g:indent_guides_guide_size=1
 
-" Status-related
-set laststatus=2
-set modeline
-set showmode
-set showcmd
+	"-- Neomake - Linting
+	let g:neomake_javscript_enabled_makers = [ 'eslint' ]
+	let g:neomake_open_list=2
+	let g:neomale_warning_sign = {
+		\ 'text': 'W',
+		\ 'texthl': 'WarningMsg',
+		\ }
+	let g:neomake_error_sign = {
+		\ 'text': 'E',
+		\ 'texthl': 'ErrorMsg',
+		\ }
+	autocmd! BufWritePost,BufEnter * Neomake
 
-" Settings for indentLine formatting
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
+""" Misc Settings
+	"-- Remove trailing whitespace on save
+	autocmd BufWritePre * :%s/\s\+$//e
+	let loaded_matchparen=1
 
-" Set SpellBad to underline misspelled
-hi clear SpellBad
-hi SpellBad cterm=underline
-
-let loaded_matchparen=1
-
-" Remove trailing whitespaces on save
-autocmd BufWritePre * :%s/\s\+$//e
-
-" Plug in calls via Vim-Plug
 call plug#begin('~/dotfiles/vim/.vim/plugged')
-  Plug 'tpope/vim-vinegar'
   Plug 'Yggdroot/indentLine'
   Plug 'itchyny/lightline.vim'
+  Plug 'rking/ag.vim'
+  Plug 'MaxSt/Flatcolor'
+  Plug 'neomake/neomake'
 call plug#end()
