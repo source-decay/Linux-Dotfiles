@@ -1,0 +1,2 @@
+nmap p :set apptab=true<CR>
+nmap P :set apptab=false<CR>

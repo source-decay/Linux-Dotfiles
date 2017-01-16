@@ -13,15 +13,15 @@
 	nnoremap <Leader>b :set nomore <Bar> :ls <Bar> :set more <CR>:b<Space>
 
 	"-- Enable tryhard mode
-	map <up> 			<nop>
-	map <down> 		<nop>
-	map <left> 		<nop>
-	map <right>   <nop>
+"	map <up> 			<nop>
+"	map <down> 		<nop>
+"	map <left> 		<nop>
+"	map <right>   <nop>
 
-	imap <up> 		<nop>
-	imap <down>   <nop>
-	imap <left> 	<nop>
-	imap <right> 	<nop>
+"	imap <up> 		<nop>
+"	imap <down>   <nop>
+"	imap <left> 	<nop>
+"	imap <right> 	<nop>
 
 """ Basics
 	set title
@@ -104,4 +104,5 @@ call plug#begin('~/dotfiles/vim/.vim/plugged')
   Plug 'rking/ag.vim'
   Plug 'MaxSt/Flatcolor'
   Plug 'neomake/neomake'
+	Plug 'posva/vim-vue'
 call plug#end()
