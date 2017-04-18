@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 #if [ -n "$force_color_prompt" ]; then
 #    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -72,7 +72,7 @@ esac
 #    ;;
 #esac
 
-export PS1="\w \$ "
+export PS1="(\w) \[\033[0;31m\]\$\[\033[0m\] "
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -132,11 +132,16 @@ alias dot='cd ~/dotfiles'
 
 alias wtf='dmesg|tail'
 alias rice='nvim ~/.vimrc'
-alias vim='nvim'
 alias nf='clear && neofetch'
 alias tmux='tmux -2'
 
+# -- My functions
+# Easier way to use sass watch
+function swatch() {
+	sass --watch "$1":"$2";
+}
 
+# Make a dir and cd into it
 function mcd() {
   mkdir -p -- "$1" && cd -- "$1";
 }
@@ -144,6 +149,7 @@ function mcd() {
 # Use mpv and ytdl as a cli youtube music player
 # make sure to have the most current version of ytdl installed or it
 # won't work
+
 function ym() {
   mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch10:"$@"
 }
