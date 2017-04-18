@@ -9,10 +9,10 @@
 	nnoremap <C-K> <C-W><C-K>
 	nnoremap <C-L> <C-W><C-L>
 	nnoremap <C-H> <C-W><C-H>
-	nnoremap <space>/ :Ag<Space>
 	nnoremap <Leader>b :set nomore <Bar> :ls <Bar> :set more <CR>:b<Space>
+	set backspace=indent,eol,start
 
-	"-- Enable tryhard mode
+"-- Enable tryhard mode
 "	map <up> 			<nop>
 "	map <down> 		<nop>
 "	map <left> 		<nop>
@@ -47,6 +47,9 @@
 	hi SpellBad cterm=underline
 	match ErrorMsg '\%>120v.\+'
 
+	set foldmethod=manual
+	set nofoldenable
+
 
 """ Netrw Related
 	let g:netrw_banner=0
@@ -69,40 +72,18 @@
 
 """ Coloring Related
 	set background=dark
-	let g:lightline = { 'colorscheme': 'flatcolor' }
+	colorscheme ron
 	highlight ColorColumn ctermbg=3
 
 """ Plugin settings
 	"-- IndentLine formatting
-	let g:indent_guides_start_level=2
-	let g:indent_guides_guide_size=1
-
-	"-- Neomake - Linting
-	let g:neomake_javscript_enabled_makers = [ 'eslint' ]
-	let g:neomake_open_list=2
-	let g:neomale_warning_sign = {
-		\ 'text': 'W',
-		\ 'texthl': 'WarningMsg',
-		\ }
-	let g:neomake_error_sign = {
-		\ 'text': 'E',
-		\ 'texthl': 'ErrorMsg',
-		\ }
-	autocmd! BufWritePost,BufEnter * Neomake
+	"let g:indent_guides_start_level=2
+	"let g:indent_guides_guide_size=1
 
 	"-- Lightline Settings
-	let g:lightline = { 'component': { 'filename': '%n:%t' } }
+	" let g:lightline = { 'component': { 'filename': '%n:%t' } }
 
 """ Misc Settings
 	"-- Remove trailing whitespace on save
 	autocmd BufWritePre * :%s/\s\+$//e
 	let loaded_matchparen=1
-
-call plug#begin('~/dotfiles/vim/.vim/plugged')
-  Plug 'Yggdroot/indentLine'
-  Plug 'itchyny/lightline.vim'
-  Plug 'rking/ag.vim'
-  Plug 'MaxSt/Flatcolor'
-  Plug 'neomake/neomake'
-	Plug 'posva/vim-vue'
-call plug#end()
